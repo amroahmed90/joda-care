@@ -4,7 +4,7 @@ const SignInForm = props => {
   return (
     <div>
       <h3>Sign In</h3>
-      <form className="container">
+      <form className="container" onSubmit={props.getUser}>
         <div className="form-group">
           <input
             className="form-control text-center"
