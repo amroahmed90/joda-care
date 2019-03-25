@@ -4,24 +4,62 @@ import NavBar from "../components/NavBar";
 import SignInForm from "../components/SigInForm";
 import SignOutForm from "../components/SignOutForm";
 
+import axios from "axios";
+import { withRouter } from "react-router-dom";
+
 class SignInLayout extends Component {
   state = {
-    username: "",
-    password: "",
-    token: "",
+    data: {},
     isSignedIn: false
   };
 
-  getUser = event => {
+  verifyUser = event => {
+    event.preventDefault();
     const username = event.target.elements.username.value;
     const password = event.target.elements.password.value;
-    this.setState({ username, password, isSignedIn: true });
-    console.log(this.state.username);
-    console.log(this.state.password);
+    localStorage.setItem("username", username);
+    localStorage.setItem("password", password);
+    axios({
+      method: "POST",
+      url: "https://jodacare-assignment.herokuapp.com/api/authenticate",
+      data: {
+        username: username,
+        password: password
+      },
+      header: "content-type: application/jason"
+    }).then(response => {
+      this.setState({ isSignedIn: true });
+      localStorage.setItem("token", response.data.token);
+    });
+    this.getUserData();
   };
 
-  signOut = event => {
+  getUserData = () => {
+    const username = localStorage.getItem("username");
+    const password = localStorage.getItem("password");
+    const token = localStorage.getItem("token");
+    const tokenBearer = "Bearer " + token;
+    axios({
+      method: "GET",
+      url: "https://jodacare-assignment.herokuapp.com/api/messages",
+      data: {
+        username: username,
+        password: password
+      },
+      headers: {
+        "content-type": "application/jason",
+        Authorization: tokenBearer
+      }
+    }).then(response => {
+      this.setState({ data: response.data.results });
+    });
+  };
+
+  signOut = () => {
     this.setState({ isSignedIn: false });
+    localStorage.removeItem("username");
+    localStorage.removeItem("password");
+    localStorage.removeItem("token");
   };
 
   render() {
@@ -29,7 +67,7 @@ class SignInLayout extends Component {
       return (
         <div>
           <NavBar />
-          <SignInForm getUser={this.getUser} />
+          <SignInForm verifyUser={this.verifyUser} />
         </div>
       );
     } else {
@@ -43,4 +81,4 @@ class SignInLayout extends Component {
   }
 }
 
-export default SignInLayout;
+export default withRouter(SignInLayout);
