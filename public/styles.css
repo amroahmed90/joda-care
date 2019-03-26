@@ -1,0 +1,70 @@
+#container {
+  width: 90%;
+  margin: 10px auto;
+}
+#outer-box {
+  background-color: rgb(237, 240, 241);
+  border: 1px dashed black;
+  border-radius: 10px;
+  opacity: 0.9;
+  margin-top: 10px;
+}
+
+#message-details {
+  padding: 5px;
+}
+
+#profile-pic {
+  margin: 5px;
+  width: 60px;
+  height: 60px;
+  float: right;
+}
+
+#profile-name {
+  font-size: 25px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  font-weight: bold;
+}
+
+div#profile-name a {
+  color: black;
+}
+#date {
+  font-style: italic;
+  font-size: 12px;
+}
+
+#message-text {
+  border-top: 1px solid rgb(48, 124, 134);
+  text-align: center;
+  text-align: justify;
+  font-size: 16px;
+  font-family: sans-serif;
+  color: rgb(48, 124, 134);
+  padding-top: 5px;
+  padding-bottom: 10px;
+}
+
+#message-bottom {
+  position: relative;
+}
+
+#comment-icon {
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+#comments-number {
+  color: rgb(48, 124, 134);
+  position: absolute;
+  right: 14px;
+  bottom: 8px;
+  width: 10px;
+  height: 10px;
+  font-size: 15px;
+  font-weight: bold;
+}

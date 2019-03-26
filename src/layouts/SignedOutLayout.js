@@ -6,6 +6,7 @@ import SignOutForm from "../components/SignOutForm";
 
 import axios from "axios";
 import { withRouter } from "react-router-dom";
+import MessageBox from "../components/MessageBox";
 
 class SignInLayout extends Component {
   state = {
@@ -31,28 +32,6 @@ class SignInLayout extends Component {
       this.setState({ isSignedIn: true });
       localStorage.setItem("token", response.data.token);
     });
-    this.getUserData();
-  };
-
-  getUserData = () => {
-    const username = localStorage.getItem("username");
-    const password = localStorage.getItem("password");
-    const token = localStorage.getItem("token");
-    const tokenBearer = "Bearer " + token;
-    axios({
-      method: "GET",
-      url: "https://jodacare-assignment.herokuapp.com/api/messages",
-      data: {
-        username: username,
-        password: password
-      },
-      headers: {
-        "content-type": "application/jason",
-        Authorization: tokenBearer
-      }
-    }).then(response => {
-      this.setState({ data: response.data.results });
-    });
   };
 
   signOut = () => {
@@ -75,6 +54,7 @@ class SignInLayout extends Component {
         <div>
           <NavBar />
           <SignOutForm signOut={this.signOut} />
+          <MessageBox />
         </div>
       );
     }
