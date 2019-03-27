@@ -10,5 +10,4 @@ const SignOutForm = props => {
     </div>
   );
 };
-
 export default SignOutForm;

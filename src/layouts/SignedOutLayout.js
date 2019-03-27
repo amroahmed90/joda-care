@@ -29,8 +29,8 @@ class SignedOutLayout extends Component {
       },
       header: "content-type: application/jason"
     }).then(response => {
-      this.setState({ isSignedIn: true });
       localStorage.setItem("token", response.data.token);
+      this.setState({ isSignedIn: true });
     });
   };
 

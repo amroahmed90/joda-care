@@ -25,7 +25,6 @@ class MessageBox extends Component {
       }
     }).then(response => {
       this.setState({ data: response.data.results });
-      console.log(this.state.data);
     });
   }
 
