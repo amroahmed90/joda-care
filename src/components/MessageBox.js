@@ -16,8 +16,8 @@ class MessageBox extends Component {
       method: "GET",
       url: "https://jodacare-assignment.herokuapp.com/api/messages",
       data: {
-        username: username,
-        password: password
+        username,
+        password
       },
       headers: {
         "content-type": "application/jason",
@@ -59,7 +59,7 @@ class MessageBox extends Component {
                     </a>
                   </div>
                   <div id="date" className="row">
-                    {"sendt: " + item.created.slice(0, 16).replace("T", " at ")}
+                    {"sendt: " + item.created.slice(0, 16).replace("T", " på ")}
                   </div>
                 </div>
               </div>

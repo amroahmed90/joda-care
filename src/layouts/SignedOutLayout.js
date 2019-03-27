@@ -8,7 +8,7 @@ import axios from "axios";
 import { withRouter } from "react-router-dom";
 import MessageBox from "../components/MessageBox";
 
-class SignInLayout extends Component {
+class SignedOutLayout extends Component {
   state = {
     data: {},
     isSignedIn: false
@@ -61,4 +61,4 @@ class SignInLayout extends Component {
   }
 }
 
-export default withRouter(SignInLayout);
+export default withRouter(SignedOutLayout);
