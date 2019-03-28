@@ -35,7 +35,8 @@
   border: 1px dashed black;
   border-radius: 10px;
   opacity: 0.9;
-  margin-top: 40px;
+  margin: 40px auto 0px auto;
+  max-width: 600px;
 }
 
 #message-details {
