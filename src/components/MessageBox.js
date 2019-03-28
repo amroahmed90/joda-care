@@ -58,7 +58,7 @@ class MessageBox extends Component {
                     </a>
                   </div>
                   <div id="date" className="row">
-                    {"sendt: " + item.created.slice(0, 16).replace("T", " på ")}
+                    {"sendt: " + item.created.slice(0, 16).replace("T", " kl ")}
                   </div>
                 </div>
               </div>

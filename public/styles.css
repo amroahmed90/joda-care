@@ -2,12 +2,40 @@
   width: 90%;
   margin: 10px auto;
 }
+#sign-in-box {
+  max-width: 400px;
+  margin-top: 60px;
+  margin-right: auto;
+  margin-left: auto;
+  border: 1px solid rgb(48, 124, 134);
+  background-color: rgb(249, 251, 252);
+  border-radius: 10px;
+}
+#sign-in-header {
+  margin-top: 20px;
+  color: rgb(48, 124, 134);
+}
+#email-input {
+  margin-top: 20px;
+}
+#password-input {
+  margin-top: 20px;
+}
+#sign-in-button {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#sign-out {
+  padding: 20px;
+}
+
 #outer-box {
-  background-color: rgb(237, 240, 241);
+  background-color: rgb(249, 251, 252);
   border: 1px dashed black;
   border-radius: 10px;
   opacity: 0.9;
-  margin-top: 10px;
+  margin-top: 40px;
 }
 
 #message-details {

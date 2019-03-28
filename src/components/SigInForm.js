@@ -2,23 +2,27 @@ import React from "react";
 
 const SignInForm = props => {
   return (
-    <div>
-      <h3>Sign In</h3>
+    <div id="sign-in-box" className="col-md-4 offset-md-4">
+      <h3 id="sign-in-header">Sign In</h3>
       <form className="container" onSubmit={props.verifyUser}>
         <div className="form-group">
           <input
+            id="email-input"
             className="form-control text-center"
             type="email"
             name="username"
             placeholder="example@jodacare.com"
           />
           <input
+            id="password-input"
             className="form-control text-center"
             type="password"
             name="password"
             placeholder="Password"
           />
-          <button className="btn btn-primary">Sign In</button>
+          <button id="sign-in-button" className="btn btn-primary btn-block">
+            Sign In
+          </button>
         </div>
       </form>
     </div>

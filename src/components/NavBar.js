@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 
 class NavBar extends Component {
-  state = {};
   render() {
     return (
       <nav className="navbar navbar-expand-md navbar-light bg-light">
@@ -34,6 +33,7 @@ class NavBar extends Component {
           <ul className="navbar-nav navbar-right">
             <li className="nav-item">
               <a
+                onClick={getUserName()}
                 className="nav-link"
                 href="https://www.jodacare.com/#about"
                 target="_blank"
@@ -88,5 +88,9 @@ class NavBar extends Component {
     );
   }
 }
+
+const getUserName = () => {
+  console.log("here!");
+};
 
 export default NavBar;
