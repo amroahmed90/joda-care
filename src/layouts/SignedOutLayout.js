@@ -7,6 +7,7 @@ import SignOutForm from "../components/SignOutForm";
 import axios from "axios";
 import { withRouter } from "react-router-dom";
 import MessageBox from "../components/MessageBox";
+import Auth from "../Routes/Auth";
 
 class SignedOutLayout extends Component {
   state = {
