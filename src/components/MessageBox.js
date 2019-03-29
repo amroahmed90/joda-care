@@ -32,8 +32,8 @@ class MessageBox extends Component {
     return (
       <ul className="container">
         {this.state.data.map((item, index) => (
-          <li key={index + 1} className="row">
-            <div id="outer-box" className="col-sm-10 offset-sm-1">
+          <li key={index + 1} id="outer-box" className="row">
+            <div id="" className="col-sm-10 offset-sm-1">
               <div id="message-details" className="row">
                 <div id="img-wrap" className="col-3">
                   <a href="#">

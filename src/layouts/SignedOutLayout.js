@@ -5,9 +5,7 @@ import SignInForm from "../components/SigInForm";
 import SignOutForm from "../components/SignOutForm";
 
 import axios from "axios";
-import { withRouter } from "react-router-dom";
 import MessageBox from "../components/MessageBox";
-import Auth from "../Routes/Auth";
 
 class SignedOutLayout extends Component {
   state = {
@@ -61,7 +59,7 @@ class SignedOutLayout extends Component {
         <div>
           <NavBar />
           <SignInForm verifyUser={this.verifyUser} />
-          <p id="incorrect-input">Username Or password do not match!</p>
+          <p id="incorrect-input">Username or password do not match!</p>
         </div>
       );
     } else {
@@ -76,4 +74,4 @@ class SignedOutLayout extends Component {
   }
 }
 
-export default withRouter(SignedOutLayout);
+export default SignedOutLayout;

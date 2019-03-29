@@ -1,12 +1,6 @@
-@media only screen and (max-device-width: 720px) {
-  .container {
-    padding-left: 10%;
-    padding-right: 10%;
-  }
-}
-#container {
+.container {
   width: 90%;
-  margin: 10px auto;
+  padding: 0px 10px;
 }
 #sign-in-box {
   max-width: 400px;
