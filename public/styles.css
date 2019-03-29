@@ -1,3 +1,9 @@
+@media only screen and (max-device-width: 720px) {
+  .container {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
 #container {
   width: 90%;
   margin: 10px auto;
@@ -24,6 +30,10 @@
 #sign-in-button {
   margin-top: 20px;
   margin-bottom: 20px;
+}
+#incorrect-input {
+  color: red;
+  margin-top: 5px;
 }
 
 #sign-out {

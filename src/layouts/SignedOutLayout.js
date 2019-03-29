@@ -11,8 +11,8 @@ import Auth from "../Routes/Auth";
 
 class SignedOutLayout extends Component {
   state = {
-    data: {},
-    isSignedIn: false
+    isSignedIn: false,
+    isClicked: false
   };
 
   verifyUser = event => {
@@ -21,6 +21,7 @@ class SignedOutLayout extends Component {
     const password = event.target.elements.password.value;
     localStorage.setItem("username", username);
     localStorage.setItem("password", password);
+
     axios({
       method: "POST",
       url: "https://jodacare-assignment.herokuapp.com/api/authenticate",
@@ -29,10 +30,15 @@ class SignedOutLayout extends Component {
         password: password
       },
       header: "content-type: application/jason"
-    }).then(response => {
-      localStorage.setItem("token", response.data.token);
-      this.setState({ isSignedIn: true });
-    });
+    })
+      .then(response => {
+        localStorage.setItem("token", response.data.token);
+        this.setState({ isSignedIn: true });
+        this.setState({ isClicked: false });
+      })
+      .catch(() => {
+        this.setState({ isClicked: true });
+      });
   };
 
   signOut = () => {
@@ -43,11 +49,19 @@ class SignedOutLayout extends Component {
   };
 
   render() {
-    if (!this.state.isSignedIn) {
+    if (!this.state.isSignedIn && !this.state.isClicked) {
       return (
         <div>
           <NavBar />
           <SignInForm verifyUser={this.verifyUser} />
+        </div>
+      );
+    } else if (!this.state.isSignedIn && this.state.isClicked) {
+      return (
+        <div>
+          <NavBar />
+          <SignInForm verifyUser={this.verifyUser} />
+          <p id="incorrect-input">Username Or password do not match!</p>
         </div>
       );
     } else {
